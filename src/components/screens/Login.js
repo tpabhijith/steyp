@@ -40,7 +40,9 @@ const Round = styled.img`
     display: block;
     width: 100%;
 `;
-const Heading = styled.h5``;
+const Heading = styled.h5`
+    font-size: 24px;
+`;
 const Description = styled.p``;
 const MiddleContainer = styled.div``;
 const Paragraph = styled.p``;

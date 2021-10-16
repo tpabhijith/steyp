@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
-
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 function LoginPass() {
     const [image,setImage] = useState(false);
@@ -9,24 +9,24 @@ function LoginPass() {
         console.log(image);
     }
     return (
-        <MainContainer>
-            <TopContainer>
-                <ImageContainer>
-                    <Round src={require("../assets/Group 2608.svg").default} alt="Round Pic" />
-                </ImageContainer>
-                <Heading>Let's root toghether and watch other grow</Heading>
-                <Description>An inventive collaboration for a smart dawn inclining kids to match their vision.</Description>
-            </TopContainer>
-            <MiddleContainer>
-                <InputFirld placeholder= "Enter your password" required/>
-                <EyeImage src={require("../assets/hide.svg").default} alt="Eye Icon" onClick={toggle} image={image}/>
-                <EyeOpen src={require("../assets/eye.svg").default} alt="Open Eye" onClick={toggle} image={image}/>
-            </MiddleContainer>
-            <BottomContainer>
-                <Button>Continue</Button>
-                <Footer>New to Steyp?</Footer>
-            </BottomContainer>
-        </MainContainer>
+            <MainContainer>
+                <TopContainer>
+                    <ImageContainer>
+                        <Round src={require("../assets/Group 2608.svg").default} alt="Round Pic" />
+                    </ImageContainer>
+                    <Heading>Let's root toghether and watch other grow</Heading>
+                    <Description>An inventive collaboration for a smart dawn inclining kids to match their vision.</Description>
+                </TopContainer>
+                <MiddleContainer>
+                    <InputFirld placeholder= "Enter your password" required/>
+                    <EyeImage src={require("../assets/hide.svg").default} alt="Eye Icon" onClick={toggle} image={image}/>
+                    <EyeOpen src={require("../assets/eye.svg").default} alt="Open Eye" onClick={toggle} image={image}/>
+                </MiddleContainer>
+                <BottomContainer>
+                    <Button>Continue</Button>
+                    <Footer>New to Steyp?</Footer>
+                </BottomContainer>
+            </MainContainer>
     )
 }
 

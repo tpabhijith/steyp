@@ -1,16 +1,18 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
 import {nextFunction} from '../includes/ButtonClick';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 function Login() {
     const [next,setNext] = useState(false);
 
     const toggle = ()=>{
             setNext(true);
-            console.log(next);
+            console.log( "next",next);
         }
 
     return (
+   
        <MainContainer>
            <TopContainer>
                <ImageContainer>
@@ -25,13 +27,21 @@ function Login() {
                <PhoneImage src={require("../assets/9180212681582004495.svg").default} alt="Phone Icon" />
            </MiddleContainer>
            <BottomContainer>
-               <Button onclick={toggle}>Continue</Button>
-               <Footer>New to Steyp?</Footer>
+               <Link to={`/loginpass`}>
+                    <Button onclick={toggle}>Continue</Button>
+               </Link>
+               <Footer>New to Steyp ? <SignLink to={`/signup`}>Sign Up</SignLink></Footer>
            </BottomContainer>
        </MainContainer>
+    
     )
 }
-
+const SignLink = styled(Link)`
+    text-decoration: none;
+    margin-left: 8px;
+    color: #29b3ef;
+    cursor: pointer;
+`;
 const MainContainer = styled.div`
     text-align: left;
 `;
@@ -67,6 +77,7 @@ const Paragraph = styled.p`
     font-size: 12px;
     color: #29b3ef;
     text-align: right;
+    cursor: pointer;
 `;
 const InputFirld = styled.input`
     width: 100%;
@@ -97,6 +108,7 @@ const Button = styled.button`
     color: #fff;
     margin-top: 30px;
     cursor: pointer;
+    z-index: 1000;
 `;
 const Footer = styled.p`
     color: #929292;

@@ -1,13 +1,27 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import Login from './Login';
+import LoginPass from './LoginPass';
+import SignUp from './SignUp';
+// import {next} from '../includes/ButtonClick';
 
 function Header(props) {
     const [open,setOpen] = useState(false);
+    const [signup,setSignup] = useState(false);
+    const [login,setLogin]=useState(false)
     const toggle = ()=>{
-        setOpen(!open);
-        console.log(open);
+            setOpen(!open);
     }
+    const changeFun = (login,signup)=>{
+       if(!login) {
+           setSignup(!signup)
+       }
+       else if(!signup){
+        setLogin(!login);
+       }
+    }
+    console.log("signup  : ",signup);
+    console.log("login  : ",login);
     return (
         <MainContainer>
             <Wrapper className="wrapper">
@@ -17,18 +31,20 @@ function Header(props) {
                     </ImageContainer>
                 </LeftContainer>
                 <RightContainer>
-                    <LogInButton onClick={toggle}>
+                    <LogInButton onClick={()=> (toggle(),setLogin(!login))}>
                         Log In
                     </LogInButton>
-                    <SignUpButton onClick={toggle}>
+                    <SignUpButton onClick={()=> (toggle(),setSignup(!signup))}>
                         Sign Up
                     </SignUpButton>
                 </RightContainer>
-                <SlideMenu open={open}>
-                    <CloseImageContainer onClick={toggle}>
+                <SlideMenu open={open} signup={signup}>
+                    <CloseImageContainer onClick={()=> (toggle(),changeFun(login,signup))}  >
                         <CloseImage src = {require("../assets/Group 2938.svg").default} alt="Close Image" />
                     </CloseImageContainer>
-                    <Login />
+                    {(login && !signup) &&  <Login />}
+                    {(signup && !login) && <SignUp />}
+                    {/* {(login && next) && <LoginPass />} */}
                 </SlideMenu>
             </Wrapper>
         </MainContainer>

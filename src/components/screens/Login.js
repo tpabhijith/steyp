@@ -1,18 +1,14 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
-import {nextFunction} from '../includes/ButtonClick';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 function Login() {
     const [next,setNext] = useState(false);
-
     const toggle = ()=>{
             setNext(true);
             console.log( "next",next);
         }
-
     return (
-   
        <MainContainer>
            <TopContainer>
                <ImageContainer>
@@ -22,9 +18,15 @@ function Login() {
                <Description>An inventive collaboration for a smart dawn inclining kids to match their vision.</Description>
            </TopContainer>
            <MiddleContainer>
-               <InputFirld placeholder= "Enter your mobile no." type="tel" required/>
+               <InputContainer>
+                    <PhoneImage src={require("../assets/9180212681582004495.svg").default} alt="Phone Icon" />
+                    <p>+91</p>
+                    <InputField placeholder= "Enter your mobile no." type="tel" required/>
+               </InputContainer>
+              
+               
                <Paragraph>Forget Password?</Paragraph>
-               <PhoneImage src={require("../assets/9180212681582004495.svg").default} alt="Phone Icon" />
+               
            </MiddleContainer>
            <BottomContainer>
                <Link to={`/loginpass`}>
@@ -33,7 +35,6 @@ function Login() {
                <Footer>New to Steyp ? <SignLink to={`/signup`}>Sign Up</SignLink></Footer>
            </BottomContainer>
        </MainContainer>
-    
     )
 }
 const SignLink = styled(Link)`
@@ -79,20 +80,31 @@ const Paragraph = styled.p`
     text-align: right;
     cursor: pointer;
 `;
-const InputFirld = styled.input`
+const InputContainer = styled.div`
     width: 100%;
-    padding: 10px 25px;
     border-radius: 10px;
-    outline: none;
-    border:none;
     border: 1px solid #000;
     box-sizing: border-box;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-space-between;
+    padding-left: 25px;
+    font-size: 16px;
+    p {
+        font-size: 13px;
+        font-weight: 400;
+    }
+`;
+const InputField = styled.input`
+    outline: none;
+    border:none;
+    padding-top: 5px;
+    padding-left: 5px;    
 `;
 const PhoneImage = styled.img`
-    position: absolute;
     width: 10px;
-    top: 11px;
-    left: 40px;
+    margin-right: 10px;
 `;
 const BottomContainer = styled.div`
     padding: 0 30px;

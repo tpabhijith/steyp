@@ -8,6 +8,17 @@ function LoginPass() {
         setImage(!image);
         console.log(image);
     }
+    const [values, setValues] = React.useState({
+        password: "",
+        showPassword: false,
+    });
+      
+    const handleClickShowPassword = () => {
+        setValues({ ...values, showPassword: !values.showPassword });
+    };      
+    const handlePasswordChange = (prop) => (event) => {
+        setValues({ ...values, [prop]: event.target.value });
+    };
     return (
             <MainContainer>
                 <TopContainer>
@@ -18,13 +29,14 @@ function LoginPass() {
                     <Description>An inventive collaboration for a smart dawn inclining kids to match their vision.</Description>
                 </TopContainer>
                 <MiddleContainer>
-                    <InputFirld placeholder= "Enter your password" required/>
-                    <EyeImage src={require("../assets/hide.svg").default} alt="Eye Icon" onClick={toggle} image={image}/>
-                    <EyeOpen src={require("../assets/eye.svg").default} alt="Open Eye" onClick={toggle} image={image}/>
+                    <InputField placeholder= "Enter your password" required type={values.showPassword ? "text" : "password"}
+                                onChange={handlePasswordChange("password")}
+                                value={values.password}/>
+                    <EyeImage src={require("../assets/hide.svg").default} alt="Eye Icon" onClick={()=>(toggle(),handleClickShowPassword())} image={image}  />
+                    <EyeOpen src={require("../assets/eye.svg").default} alt="Open Eye" onClick={()=>(toggle(),handleClickShowPassword())} image={image}/>
                 </MiddleContainer>
                 <BottomContainer>
                     <Button>Continue</Button>
-                    <Footer>New to Steyp?</Footer>
                 </BottomContainer>
             </MainContainer>
     )
@@ -66,7 +78,7 @@ const Paragraph = styled.p`
     color: #29b3ef;
     text-align: right;
 `;
-const InputFirld = styled.input`
+const InputField = styled.input`
     width: 100%;
     padding: 10px 25px;
     border-radius: 10px;
@@ -87,7 +99,7 @@ const EyeImage = styled.img`
 const EyeOpen = styled.img`
     position: absolute;
     width: 18px;
-    top: 11px;
+    top: 13px;
     right:46px;
     display: ${({image})=> (image ? 'none' : 'block')};
     cursor: pointer;

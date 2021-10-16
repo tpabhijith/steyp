@@ -22,7 +22,7 @@ function Login() {
                <Description>An inventive collaboration for a smart dawn inclining kids to match their vision.</Description>
            </TopContainer>
            <MiddleContainer>
-               <InputFirld placeholder= "Enter your mobile no." type="number" required/>
+               <InputFirld placeholder= "Enter your mobile no." type="tel" required/>
                <Paragraph>Forget Password?</Paragraph>
                <PhoneImage src={require("../assets/9180212681582004495.svg").default} alt="Phone Icon" />
            </MiddleContainer>

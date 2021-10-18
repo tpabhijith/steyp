@@ -5,6 +5,9 @@ import LoginPass from './LoginPass';
 import SignUp from './SignUp';
 import Home from './Home';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import SignUpPass from './SignUpPass';
+import Referral from './Referral';
+import ForgetPassword from './ForgetPassword';
 
 
 function Header(props) {
@@ -60,6 +63,9 @@ function Header(props) {
                                 <Route path="/login" exact component={Login} />
                                 <Route path="/signup" exact component={SignUp} />
                                 <Route path="/loginpass" exact component={LoginPass} />
+                                <Route path="/signuppass" exact component={SignUpPass} />
+                                <Route path="/referral" exact component={Referral} />
+                                <Route path="/forgetpass" exact component={ForgetPassword} />
                             </Switch>
                         </ContentContainer>
                     </SlideMenu>

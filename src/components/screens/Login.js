@@ -24,9 +24,9 @@ function Login() {
                     <InputField placeholder= "Enter your mobile no." type="tel" required/>
                </InputContainer>
               
-               
-               <Paragraph>Forget Password?</Paragraph>
-               
+               <ForgotLink to={`/forgetpass`}>
+                    <Paragraph>Forget Password?</Paragraph>
+               </ForgotLink>
            </MiddleContainer>
            <BottomContainer>
                <Link to={`/loginpass`}>
@@ -37,6 +37,11 @@ function Login() {
        </MainContainer>
     )
 }
+const ForgotLink = styled(Link)`
+     text-decoration: none;
+     color: #29b3ef;
+    cursor: pointer;
+`;
 const SignLink = styled(Link)`
     text-decoration: none;
     margin-left: 8px;
